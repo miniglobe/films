@@ -24,7 +24,7 @@ class Login extends CI_Controller {
     $password = $this->input->post('password');
 
     $this->load->model('Login_check');
-    $auth_success = $this->login_check->check($user_id, $password);
+    $auth_success = $this->Login_check->check($user_id, $password);
 
 
     if ($auth_success)
