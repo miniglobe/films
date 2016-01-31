@@ -1,5 +1,5 @@
 <?php
-class login_check extends CI_Model {
+class Login_check extends CI_Model {
 
     function __construct()
     {
