@@ -1,8 +1,41 @@
+<?php
+$base_url = $this->config->site_url();
+ ?>
+
 <html>
-<head>
-  <title>test</title>
-</head>
-<body>
-  <h1><?php echo $message; ?></h1>
-</body>
-</html>
+       <head>
+           <meta http-equiv="content-type" content="text/html; charset=utf-8">
+           <title>ログイン</title>
+       </head>
+       <body>
+           <h1>ログイン</h1>
+           <hr>
+           <div align="center">
+              <table border="0">
+                  <form action="<?php echo $base_url."/login"; ?>" method="POST">
+                                         <tr>
+                                                                    <th>
+                              ユーザID
+                          </th>
+                          <td>
+                              <input type="text" name="user_id" value="" size="24">
+                          </td>
+                                             </tr>
+                      <tr>
+                          <th>
+                              パスワード
+                          </th>
+                          <td>
+                              <input type="password" name="password" value="" size="24">
+                          </td>
+                                             </tr>
+                      <tr>
+                          <td colspan="2">
+                              <input type="submit" value="ログイン">
+                          </td>
+                      </tr>
+                  </form>
+              </table>
+          </div>
+      </body>
+  </html>
