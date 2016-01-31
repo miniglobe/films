@@ -23,7 +23,7 @@ class Login extends CI_Controller {
     $user_id = $this->input->post('user_id');
     $password = $this->input->post('password');
 
-    $this->load->model('login_check');
+    $this->load->model('Login_check');
     $auth_success = $this->login_check->check($user_id, $password);
 
 
