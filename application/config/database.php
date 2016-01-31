@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.161.156',
+	'hostname' => '192.168.161.51',
 	'username' => 'ext_user',
 	'password' => '<PASSWORD>',
 	'database' => 'films',
