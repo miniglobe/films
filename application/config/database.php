@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.161.51',
-	'username' => 'pma',
-	'password' => 'password',
-	'database' => '',
+	'hostname' => '192.168.161.156',
+	'username' => 'ext_user',
+	'password' => '<PASSWORD>',
+	'database' => 'films',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
