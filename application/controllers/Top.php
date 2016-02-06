@@ -20,7 +20,6 @@ class Top extends CI_Controller {
 	 */
 	public function index()
 	{
-    $data['message'] = 'Hello World!!!';
-		$this->load->view('top', $data);
+		$this->load->view('Top', $data);
 	}
 }
