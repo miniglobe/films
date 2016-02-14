@@ -1,0 +1,37 @@
+@charset "UTF-8";
+body{
+
+  background-image: url(15660.jpg);
+  background-size: cover;
+  color: rgb(255, 255, 255)
+}
+
+table {
+  background: #e99fed;
+  font-family: Meiryo;
+  width: 400px;
+  height: 200px;
+
+}
+
+.box_left {
+    float:left;
+    width:400px;
+    height:100px;
+
+}
+
+.box_right {
+    float:left;
+    width:700px;
+    height:100px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.story{
+  margin-left:50px;
+}

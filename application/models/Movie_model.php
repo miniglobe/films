@@ -13,7 +13,9 @@ class Movie_model extends CI_Model {
        genre.genre_name,
        movie_info.director,
        movie_info.explanation,
-       movie_info.publication_date
+       movie_info.publication_date,
+       movie_info.story,
+       movie_info.movie_id
        FROM movie_info
        INNER JOIN genre
        ON movie_info.genre_id = genre.genre_id
