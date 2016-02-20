@@ -60,7 +60,6 @@ class Movies_model extends CI_Model {
 
 
       $result = $this->db->query($exec_sql, $bind_var)->result_array();
-      echo $this->db->last_query();
       return $result;
     }
 }

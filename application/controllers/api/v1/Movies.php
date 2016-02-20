@@ -25,7 +25,6 @@ class Movies extends CI_Controller {
 
 		$this->load->model('Movies_model');
     $data = $this->Movies_model->main($text, $genre_id);
-		print_r($data);
     $this->output->set_content_type('application/json')->set_output(json_encode($data));
 	}
 }
