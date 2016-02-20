@@ -20,8 +20,8 @@ class Movies extends CI_Controller {
 	 */
 	public function index()
 	{
-    $text = isset($_GET['text']) ? $this->input->get('text') : null;
-    $genre_id = isset($_GET['genre']) ? $this->input->get('genre') : null;
+    $text = isset($_POST['text']) ? $this->input->post('text') : null;
+    $genre_id = isset($_POST['genre']) ? $this->input->post('genre') : null;
 
 		$this->load->model('Movies_model');
     $data = $this->Movies_model->main($text, $genre_id);

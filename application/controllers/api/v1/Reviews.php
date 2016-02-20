@@ -24,5 +24,6 @@ class Reviews extends CI_Controller {
     $this->load->model('Reviews_model');
     $data = $this->Reviews_model->main($movie_id);
     $this->output->set_content_type('application/json')->set_output(json_encode($data));
+		$this->load->view('Movie', $data[0]);
 	}
 }
