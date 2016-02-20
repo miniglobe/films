@@ -25,7 +25,7 @@ class Movies extends CI_Controller {
 
 		$this->load->model('Movies_model');
     $data = $this->Movies_model->main($text, $genre_id);
-
-		$this->load->view('Movies');
+		print_r($data);
+//		$this->load->view('Movies');
 	}
 }
