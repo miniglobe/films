@@ -9,6 +9,7 @@ class Movies_model extends CI_Model {
 
     function main($text, $genre_id)
     {
+      // TODO 後でリファクタリング
 
       if($text === null)
       {
@@ -47,10 +48,19 @@ class Movies_model extends CI_Model {
        }
 
        $exec_sql = rtrim($sql.$where1.$where2, "OR");
+       $bind_var = array_merge($keywords_org, $keywords_kana);
+
+       if($genre_id != null)
+       {
+         $genre_id = array($genre_id);
+         $exec_sql .= " AND genre_id = ?";
+         $bind_var = array_merge($bind_var, $genre_id);
+       }
 
 
 
-      $result = $this->db->query($exec_sql,array_merge($keywords_org, $keywords_kana))->result_array();
+      $result = $this->db->query($exec_sql, $bind_var)->result_array();
+      echo $this->db->last_query();
       return $result;
     }
 }
