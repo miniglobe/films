@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Reviews extends CI_Controller {
+class Movies extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,10 +20,11 @@ class Reviews extends CI_Controller {
 	 */
 	public function index()
 	{
-    $movie_id = $this->input->get('movie_id');
-    $this->load->model('Reviews_model');
-    $data = $this->Reviews_model->main($movie_id);
+    $text = isset($_GET['text']) ? $this->input->get('text') : null;
+    $genre_id = isset($_GET['genre']) ? $this->input->get('genre') : null;
+
+		$this->load->model('Movies_model');
+    $data = $this->Movies_model->main($text, $genre_id);
     $this->output->set_content_type('application/json')->set_output(json_encode($data));
-		$this->load->view('Movie', $data[0]);
 	}
 }
