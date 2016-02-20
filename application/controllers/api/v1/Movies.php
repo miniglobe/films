@@ -20,6 +20,12 @@ class Movies extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('Movies');
+    $text = isset($_GET['text']) ? $this->input->get('text') : null;
+    $genre_id = isset($_GET['genre']) ? $this->input->get('genre') : null;
+
+		$this->load->model('Movies_model');
+    $data = $this->Movies_model->main($text, $genre_id);
+		print_r($data);
+    $this->output->set_content_type('application/json')->set_output(json_encode($data));
 	}
 }
