@@ -1,3 +1,10 @@
+<?php
+$this->load->helper('url');
+$base_url = base_url();
+$movies_api_relative_url = "index.php/api/v1/movies/";
+$img_relative_url = "public/img/movie_package/";
+$movie_relative_url = "index.php/movie?movie_id=";
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +17,16 @@
       var text = $('#text').val();
       $.ajax({
         type: "POST",
-        url: "http://localhost/index.php/api/v1/movies/",
+        url: "<?php echo $base_url.$movies_api_relative_url; ?>",
         data:{text: text},
         dataType: "json",
       }).done(function(data){
         $("#thumbnail").append("<br />");
         for(var i in data){
-          img = $("<img>").attr("src", "http://localhost/public/img/movie_package/" + data[i].movie_id + ".jpg");
+          img = $("<img>").attr("src", "<?php echo $base_url.$img_relative_url; ?>" + data[i].movie_id + ".jpg");
           $(img).width(300).height(300);
           $("#thumbnail").append(img);
-          $(img).wrap($("<a></a>").attr({href:"http://localhost/index.php/movie?movie_id=" + data[i].movie_id}));
+          $(img).wrap($("<a></a>").attr({href:"<?php echo $base_url.$movie_relative_url; ?>" + data[i].movie_id}));
         }
       })
     });
