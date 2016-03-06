@@ -17,7 +17,7 @@ $reviews_api_relative_url = "index.php/api/v1/reviews/";
 <script>
 $(document).ready(
   $.ajax({
-    type: "POST",
+    type: "GET",
     url: "<?php echo $base_url.$reviews_api_relative_url; ?>",
     data:{movie_id: "<?php echo $movie_id ?>"},
     dataType: "json"
@@ -57,13 +57,16 @@ $(document).ready(
   <?php echo $story; ?>
 </p>
 </div>
+</div>
 
 <div class="box_left2">
+  <hr style="width:100%"> </hr>
+  <h2>作品へのレビュー</h2>
   <div id="result">
   </div>
 
 </div>
-</div>
+
 
 
 

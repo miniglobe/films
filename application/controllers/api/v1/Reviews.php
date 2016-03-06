@@ -20,7 +20,7 @@ class Reviews extends CI_Controller {
 	 */
 	public function index()
 	{
-    $movie_id = $this->input->post('movie_id');
+    $movie_id = $this->input->get('movie_id');
     $this->load->model('Reviews_model');
     $data = $this->Reviews_model->main($movie_id);
     $this->output->set_content_type('application/json')->set_output(json_encode($data));
