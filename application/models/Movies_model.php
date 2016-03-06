@@ -11,7 +11,7 @@ class Movies_model extends CI_Model {
     {
       // TODO 後でリファクタリング
 
-      if($text === null)
+      if($text === '')
       {
         return;
       }
