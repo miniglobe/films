@@ -18,8 +18,8 @@
         for(var i in data){
           img = $("<img>").attr("src", "http://localhost/public/img/movie_package/" + data[i].movie_id + ".jpg");
           $(img).width(300).height(300);
-          $(img).wrap($("<a></a>").attr({href:"http://localhost/index.php/movie?movie_id=" + data[i].movie_id}));
           $("#thumbnail").append(img);
+          $(img).wrap($("<a></a>").attr({href:"http://localhost/index.php/movie?movie_id=" + data[i].movie_id}));
         }
       })
     });
