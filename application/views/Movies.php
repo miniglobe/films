@@ -15,15 +15,18 @@ $movie_relative_url = "index.php/movie?movie_id=";
     $('#thumbnail').empty();
     var text = $('#text').val();
     $.ajax({
-      type: "POST",
+      type: "GET",
       url: "<?php echo $base_url.$movies_api_relative_url; ?>",
       data:{text: text},
       dataType: "json",
     }).done(function(data){
       $("#thumbnail").append("<br />");
       for(var i in data){
+        if(i % 3 == 0) {
+          $("#thumbnail").append("<br />");
+        }
         img = $("<img>").attr("src", "<?php echo $base_url.$img_relative_url; ?>" + data[i].movie_id + ".jpg");
-        $(img).width(300).height(300);
+        $(img).width(200).height(200);
         $("#thumbnail").append(img);
         $(img).wrap($("<a></a>").attr({href:"<?php echo $base_url.$movie_relative_url; ?>" + data[i].movie_id}));
       }
