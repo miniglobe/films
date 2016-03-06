@@ -29,7 +29,7 @@ $movies_relative_url = "index.php/movies";
   <ul id="menu">
     <li><a href="http://">ニュース</a></li>
     <li><a href="http://">ランキング</a></li>
-    <li><a href="<?php echo $base_url.$movies_relative_url;?>">映画を探す/</a><li>
+    <li><a href="<?php echo $base_url.$movies_relative_url;?>">映画を探す</a><li>
   </ul>
 </nav>
 
