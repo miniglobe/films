@@ -29,11 +29,6 @@ $Reviews_relative_url = "configurations/api/v1/Reviews.php";
        <td><?php echo $publication_date; ?></td>
    </tr>
 
-   <tr>
-     <th>説明</th>
-       <td><?php echo $explanation; ?></td>
-   </tr>
-
 
     </table>
   </div>
@@ -46,11 +41,7 @@ $Reviews_relative_url = "configurations/api/v1/Reviews.php";
 </div>
 
 <div class="box_left2">
-<h2>レビュー</h2>
-<p>
-<?php echo $base_url.$Reviews_relative_url; ?>
 
-</p>
 </div>
 </div>
 

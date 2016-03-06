@@ -12,7 +12,6 @@ class Movie_model extends CI_Model {
       $sql = "SELECT movie_info.title,
        genre.genre_name,
        movie_info.director,
-       movie_info.explanation,
        movie_info.publication_date,
        movie_info.story,
        movie_info.movie_id
