@@ -4,7 +4,9 @@ $this->load->helper('url');
 $base_url = base_url();
 $movie_css_relative_url = "public/css/movie.css";
 $movie_img_relative_url = "public/img/movie_package/";
-$Reviews_relative_url = "configurations/api/v1/Reviews.php";
+$reviews_relative_url = "configurations/api/v1/Reviews.php";
+$reviews_api_relative_url = "index.php/api/v1/reviews/";
+
  ?>
  <html>
  <head>
@@ -12,6 +14,20 @@ $Reviews_relative_url = "configurations/api/v1/Reviews.php";
 <meta charset="utf-8">
 <title>テスト</title>
 <link rel="stylesheet" href="<?php echo $base_url.$movie_css_relative_url; ?>">
+<script>
+
+$.ajax({
+  type: "POST",
+  url: "<?php echo $base_url.$reviews_api_relative_url; ?>",
+  data:{movie_id: "<?php echo $movie_id ?>"},
+  dataType: "json",
+}).done(function(data){
+   $("#result").html(data);
+    }
+});
+
+</script>
+
 
 </head>
 
@@ -41,6 +57,8 @@ $Reviews_relative_url = "configurations/api/v1/Reviews.php";
 </div>
 
 <div class="box_left2">
+  <div id="result">
+  </div>
 
 </div>
 </div>
