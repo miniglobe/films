@@ -14,17 +14,23 @@ $reviews_api_relative_url = "index.php/api/v1/reviews/";
 <meta charset="utf-8">
 <title>テスト</title>
 <link rel="stylesheet" href="<?php echo $base_url.$movie_css_relative_url; ?>">
+<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script>
-
-$.ajax({
-  type: "POST",
-  url: "<?php echo $base_url.$reviews_api_relative_url; ?>",
-  data:{movie_id: "<?php echo $movie_id ?>"},
-  dataType: "json",
-}).done(function(data){
-   $("#result").html(data);
-    }
+$(function() {
+  $.ajax({
+    type: "POST",
+    url: "<?php echo $base_url.$reviews_api_relative_url; ?>",
+    data:{movie_id: "<?php echo $movie_id ?>"},
+    dataType: "json",
+  }).done(function(data){
+     for(var i in data){
+       var p = $(data[i]).wrap("<p></p>");
+       $("#result").append(p);
+     }
+  });
 });
+
+
 
 </script>
 
