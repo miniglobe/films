@@ -20,6 +20,7 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->library('session');
     $this->load->helper('url');
 		$user_id = $this->input->post('user_id');
     $password = $this->input->post('password');
@@ -30,6 +31,7 @@ class Login extends CI_Controller {
 
     if ($auth_success)
     {
+			
       redirect('/mypage/','refresh');
     }
     else

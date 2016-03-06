@@ -13,10 +13,10 @@ $top_css_relative_url = "public/css/mypage.css";
 
 <body>
   <div class="top_center_view">
-    <ul id="global_navi">
-      <li><a href="http://">見たい</a></li>
-      <li><a href="http://">見た</a></li>
-      <li><a href="http://">アクティビティ</a></li>
+
+      <h1>見たいリスト</h1>
+      <h1>見たリスト</h1>
+      <h1>アクティビティ</h1>
     </ul>
  </div>
 </body>
