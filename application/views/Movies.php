@@ -6,6 +6,7 @@
   <script>
   $(function(){
     $('#button').click(function(){
+      $('#thumbnail').empty();
       var text = $('#text').val();
       $.ajax({
         type: "POST",
@@ -13,10 +14,12 @@
         data:{text: text},
         dataType: "json",
       }).done(function(data){
-        $("body").append("<br />");
+        $("#thumbnail").append("<br />");
         for(var i in data){
-          a = $("<img>").attr("src", "http://localhost/public/img/movie_package/" + data[i].movie_id + ".jpg");
-          $("body").append(a);
+          img = $("<img>").attr("src", "http://localhost/public/img/movie_package/" + data[i].movie_id + ".jpg");
+          $(img).width(300).height(300);
+          $(img).wrap($("<a></a>").attr({href:"http://localhost/index.php/movie?movie_id=" + data[i].movie_id}));
+          $("#thumbnail").append(img);
         }
       })
     });
@@ -26,5 +29,7 @@
   <body>
     <input type="text" id="text" value="">
     <button id="button">検索</button>
+    <div id="thumbnail">
+    </div>
   </body>
 </html>
