@@ -19,7 +19,5 @@ class Watched_model extends CI_Model {
 
       $result = $this->db->query($sql,$movie_id)->result_array();
       return $result;
-
-
     }
 }
