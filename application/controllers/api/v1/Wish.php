@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Wish extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,23 +20,8 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
-    $this->load->helper('url');
-		$user_id = $this->input->post('user_id');
-    $password = $this->input->post('password');
-
-    $this->load->model('Login_check');
-    $auth_success = $this->Login_check->check($user_id, $password);
-
-
-    if ($auth_success)
-    {
-		$this->load->library('session');
-    $this->session->set_userdata('user_id',$user_id);
-     redirect('/mypage/','refresh');
-    }
-    else
-    {
-      echo "ログインIDまたはパスワードが不正です。";
-    }
+    $movie_id = $this->input->get('movie_id');
+    $this->load->model('Wish_model');
+    $data = $this->Watched_model->main($movie_id);
 	}
 }

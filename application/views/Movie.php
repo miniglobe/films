@@ -4,15 +4,33 @@ $this->load->helper('url');
 $base_url = base_url();
 $movie_css_relative_url = "public/css/movie.css";
 $movie_img_relative_url = "public/img/movie_package/";
-$Reviews_relative_url = "configurations/api/v1/Reviews.php";
+$reviews_relative_url = "configurations/api/v1/Reviews.php";
+$reviews_api_relative_url = "index.php/api/v1/reviews/";
+
  ?>
+ <!DOCTYPE html>
  <html>
  <head>
-
 <meta charset="utf-8">
 <title>テスト</title>
+<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+$(document).ready(
+  $.ajax({
+    type: "GET",
+    url: "<?php echo $base_url.$reviews_api_relative_url; ?>",
+    data:{movie_id: "<?php echo $movie_id ?>"},
+    dataType: "json"
+  }).done(function(data){
+    for(var i in data) {
+      content = data[i].contents;
+      $("#result").append(content);
+      $(content).wrap('<p></p>');
+      $("#result").append("<br />");
+    }
+  }));
+</script>
 <link rel="stylesheet" href="<?php echo $base_url.$movie_css_relative_url; ?>">
-
 </head>
 
   <body>
@@ -29,11 +47,6 @@ $Reviews_relative_url = "configurations/api/v1/Reviews.php";
        <td><?php echo $publication_date; ?></td>
    </tr>
 
-   <tr>
-     <th>説明</th>
-       <td><?php echo $explanation; ?></td>
-   </tr>
-
 
     </table>
   </div>
@@ -44,15 +57,16 @@ $Reviews_relative_url = "configurations/api/v1/Reviews.php";
   <?php echo $story; ?>
 </p>
 </div>
+</div>
 
 <div class="box_left2">
-<h2>レビュー</h2>
-<p>
-<?php echo $base_url.$Reviews_relative_url; ?>
+  <hr style="width:100%"> </hr>
+  <h2>作品へのレビュー</h2>
+  <div id="result">
+  </div>
 
-</p>
 </div>
-</div>
+
 
 
 

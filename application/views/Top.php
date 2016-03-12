@@ -3,6 +3,7 @@ $this->load->helper('url');
 $base_url = base_url();
 $login_relative_url = "index.php/login";
 $top_css_relative_url = "public/css/top.css";
+$movies_relative_url = "index.php/movies";
  ?>
 <html>
 
@@ -28,7 +29,7 @@ $top_css_relative_url = "public/css/top.css";
   <ul id="menu">
     <li><a href="http://">ニュース</a></li>
     <li><a href="http://">ランキング</a></li>
-    <li><a href="http://">映画を探す</a></li>
+    <li><a href="<?php echo $base_url.$movies_relative_url;?>">映画を探す</a><li>
   </ul>
 </nav>
 

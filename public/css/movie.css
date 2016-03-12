@@ -19,16 +19,14 @@ table {
 .box_left {
     float:left;
     width:400px;
-    height:100px;
+    height:600px;
 
 }
 
 .box_left2 {
-    float:left;
-    width:500px;
-    height:100px;
-    margin-left:50px;
-
+    width:100%;
+    position:absolute;
+    top:640px;
 }
 
 .box_right {

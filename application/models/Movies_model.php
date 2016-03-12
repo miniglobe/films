@@ -11,7 +11,7 @@ class Movies_model extends CI_Model {
     {
       // TODO 後でリファクタリング
 
-      if($text === null)
+      if($text === '')
       {
         return;
       }
@@ -21,12 +21,30 @@ class Movies_model extends CI_Model {
       // 半角スペースで入力文字列を区切る
       $keywords_org = explode(" ", $text);
 
+      $idx = 0;
+
+      $keywords_kana = array();
+
       foreach($keywords_org as $keyword)
       {
-        // 全角ひらがな、カタカナを半角ｶﾀｶﾅに変換
-        $keywords_kana[] = mb_convert_kana($keyword, "kh");
+        if($keyword === "")
+        {
+          unset($keywords_org[$idx]);
+        }
+        else
+        {
+          // 全角ひらがな、カタカナを半角ｶﾀｶﾅに変換
+          $keywords_kana[] = mb_convert_kana($keyword, "kh");
+        }
+        $idx++;
       }
 
+      if(count($keywords_org) === 0)
+      {
+        return;
+      }
+
+      array_values($keywords_org);
 
       $sql = "SELECT movie_id, title
        FROM movie_info
