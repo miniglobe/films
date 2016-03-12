@@ -5,6 +5,13 @@ class Mypage extends CI_Controller {
 
   public function index()
 	{
-		$this->load->view('Mypage');
+
+    $this->load->library('session');
+
+    //echo $this->session->userdata('user_id');
+    //exit();
+
+    $value = array('user_id' => $this->session->userdata('user_id'));
+    $this->load->view('Mypage', $value);
 	}
 }

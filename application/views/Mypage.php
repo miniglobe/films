@@ -1,8 +1,15 @@
 <?php
 $this->load->helper('url');
+$this->load->library('session');
 $base_url = base_url();
 $login_relative_url = "index.php/mypage";
 $top_css_relative_url = "public/css/mypage.css";
+
+//$reviews_relative_url = "configurations/api/v1/Watched.php";
+//$reviews_relative_url = "configurations/api/v1/Wish.php";
+
+
+
  ?>
 <html>
 
