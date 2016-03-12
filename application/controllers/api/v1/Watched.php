@@ -20,8 +20,10 @@ class Watched extends CI_Controller {
 	 */
 	public function index()
 	{
-    $movie_id = $this->input->get('movie_id');
+		$this->load->library('session');
+		$user_id = $this->session->userdata('user_id');
     $this->load->model('Watched_model');
-    $data = $this->Watched_model->main($movie_id);
+    $data = $this->Watched_model->main($user_id);
+		$this->output->set_content_type('application/json')->set_output(json_encode($data));
 	}
 }
