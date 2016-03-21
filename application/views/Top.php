@@ -4,6 +4,7 @@ $base_url = base_url();
 $login_relative_url = "index.php/login";
 $top_css_relative_url = "public/css/top.css";
 $movies_relative_url = "index.php/movies";
+$sign_up_relative_url = "index.php/sign_up";
  ?>
 <html>
 
@@ -74,11 +75,24 @@ $movies_relative_url = "index.php/movies";
 </div>
 
     <form action="<?php echo $base_url.$login_relative_url;?>" method="post">
-      sign in <br />
+      <font color=yellow size=6><b>ログイン</b></font> <br />
+      userID<br />
       <input type="text" name="user_id" value="" /> <br />
+      password<br />
       <input type="text" name="password" value="" /> <br />
       <input type="submit" value="sign in" /> <br />
+    </form>
 
+
+      <br />
+      <form action="<?php echo $base_url.$sign_up_relative_url;?>" method="post">
+        <font color=yellow size=6><b>新規登録</b></font> <br />
+        userID<br />
+        <input type="text" name="user_id" value="" /> <br />
+        password<br />
+        <input type="text" name="password" value="" /> <br />
+        <input type="submit" value="sign up" /> <br />
+      </form>
 </body>
 
 </html>
