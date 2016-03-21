@@ -1,12 +1,10 @@
-
 <?php
 $this->load->helper('url');
 $base_url = base_url();
 $movie_css_relative_url = "public/css/movie.css";
 $movie_img_relative_url = "public/img/movie_package/";
-$reviews_relative_url = "configurations/api/v1/Reviews.php";
 $reviews_api_relative_url = "index.php/api/v1/reviews/";
-
+$review_api_relative_url = "index.php/api/v1/review/";
  ?>
  <!DOCTYPE html>
  <html>
@@ -56,11 +54,23 @@ $(document).ready(
 <p>
   <?php echo $story; ?>
 </p>
+
+
+
+<p>↓↓↓レビュー投稿フォーム↓↓↓</p>
+
+<form method="POST" action="<?php echo $base_url.$review_api_relative_url ?>">
+<textarea name="contents" rows="6" cols="100">
+</textarea><br><br>
+<inpur type="hidden" name="movie_id" value="<?php echo $movie_id ?>"/>
+<input type="submit" name="btn1" value="投稿する"/>
+</form>
+
 </div>
 </div>
 
 <div class="box_left2">
-  <hr style="width:100%"> </hr>
+  　<!-- <hr style="width:100%"> </hr> -->
   <h2>作品へのレビュー</h2>
   <div id="result">
   </div>
