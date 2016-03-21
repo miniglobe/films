@@ -42,7 +42,5 @@ class Sign_up extends CI_Controller {
 			echo "無事、登録が完了いたしました。";
 			}
 		}
-
-
 	}
 }

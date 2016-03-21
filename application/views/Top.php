@@ -49,7 +49,6 @@ $sign_up_relative_url = "index.php/sign_up";
     <p>うんたらかんたら</p>
 </div>
 </section>
-
 <section>
 <div class="contentsbox">
   <h3 class="midashi">アピールポイント</h3>
