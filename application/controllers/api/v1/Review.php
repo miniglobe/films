@@ -35,8 +35,13 @@ class Review extends CI_Controller {
   function _postReview()
   {
     $contents = $this->input->post('contents');
-    $user_id = $this->input->post('user_id');
+		$this->load->library('session');
+		$user_id = $this->session->userdata('user_id');
     $movie_id = $this->input->post('movie_id');
+
+		//null;
+		//preg_match('{movie_id: "(.*?)"}','http://localhost/index.php/movie?movie_id=',$movie_id);
+
 
     $var = array(
       'contents' => $contents,
