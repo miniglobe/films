@@ -8,15 +8,27 @@ class Wish_model extends CI_Model {
           $this->load->database();
       }
 
-      function main($user_id)
+      function insertWish($arr)
       {
-       $sql = "SELECT
-       movie_id
-       FROM wish_list
-       WHERE user_id = ?
+       $sql = "INSERT INTO wish_list
+       (
+         user_id,
+         movie_id
+       )
+       VALUES
+       (
+         ?,
+         ?
+       )
       ";
+      $param = array(
+        $arr['user_id'],
+        $arr['movie_id']
 
-      $result = $this->db->query($sql,$user_id)->result_array();
+      );
+
+//    $result = $this->db->query($sql,$param)->result_array();
+      $result = $this->db->query($sql,$param);
       return $result;
 
     }
