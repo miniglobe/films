@@ -58,13 +58,42 @@ $(document).ready(
 
 
 <p>↓↓↓レビュー投稿フォーム↓↓↓</p>
+<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+var gettext = function(){
+  var text = $('#text').val();
+  $.ajax({
+    type: "POST",
+    url: "<?php echo $base_url.$review_api_relative_url; ?>",
+    data:{contents: text,movie_id:"<?php echo $movie_id ?>"},
+    dataType: "json"
+  }).done(function(data){
+    alert("Done");
+    }
+  })
+};
 
-<form method="POST" action="<?php echo $base_url.$review_api_relative_url ?>">
+$(function() {
+  $('#button').on('click', function() {
+    gettext();
+  })
+});
+
+  </script>
+  <input type="text" id="text" value="">
+  <button id="button">投稿</button>
+
+
+
+
+<!--
+<form method="POST" action="<?php //echo $base_url.$review_api_relative_url ?>">
 <textarea name="contents" rows="6" cols="100">
 </textarea><br><br>
-<inpur type="hidden" name="movie_id" value="<?php echo $movie_id ?>"/>
+<input type="hidden" name="movie_id" value="<?php //echo $movie_id ?>"/>
 <input type="submit" name="btn1" value="投稿する"/>
 </form>
+
 
 </div>
 </div>
