@@ -34,7 +34,7 @@ class Review extends CI_Controller {
 
   function _postReview()
   {
-    $contents = $this->input->post('contents');
+		$contents = html_escape($this->input->post('contents'));
 		$this->load->library('session');
 		$user_id = $this->session->userdata('user_id');
     $movie_id = $this->input->post('movie_id');

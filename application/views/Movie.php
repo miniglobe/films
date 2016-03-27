@@ -80,7 +80,7 @@ $(function() {
 
   </script>
   <input type="text" id="text" value="">
-  <button id="button">投稿</button>
+  <button id="button" value="">投稿</button>
 
 
 
