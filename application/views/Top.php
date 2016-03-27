@@ -15,10 +15,26 @@ $sign_up_relative_url = "index.php/sign_up";
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
+<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+$(function($) {
+  $('#sign-up').change(function(){
+    var user_id = $("#sign-up [name=user_id]").val();
+    var password = $("#sign-up [name=password]").val();
+    if(user_id != "" && password != "") {
+      $("#sign-up-button").prop("disabled", false);
+    } else {
+      $("#sign-up-button").prop("disabled", true);
+    }
+  });
+});
+
+</script>
 
 <body>
 
-<div id = "wrap">
+
+<div id="wrap">
 
 <header>
   <h1>ここになんか見出し入れます</h1>
@@ -84,13 +100,13 @@ $sign_up_relative_url = "index.php/sign_up";
 
 
       <br />
-      <form action="<?php echo $base_url.$sign_up_relative_url;?>" method="post">
+      <form id="sign-up"  action="<?php echo $base_url.$sign_up_relative_url;?>" method="post">
         <font color=yellow size=6><b>新規登録</b></font> <br />
         userID<br />
         <input type="text" name="user_id" value="" /> <br />
         password<br />
         <input type="text" name="password" value="" /> <br />
-        <input type="submit" value="sign up" /> <br />
+        <input id="sign-up-button" disabled=disabled type="submit" value="sign up" /> <br />
       </form>
 </body>
 

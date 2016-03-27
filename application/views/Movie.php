@@ -67,11 +67,10 @@ var gettext = function(){
     url: "<?php echo $base_url.$review_api_relative_url; ?>",
     data:{contents: text,movie_id:"<?php echo $movie_id ?>"},
     dataType: "json"
-  }).done(function(data){
-    alert("Done");
-    }
-  })
-};
+  }).done(function() {
+    alert("done");
+  });
+}
 
 $(function() {
   $('#button').on('click', function() {
